@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asaf Milman — Journalism Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #0f0e0c;
+      --paper: #f5f0e8;
+      --cream: #ece7da;
+      --accent: #c8392b;
+      --accent2: #1a3a5c;
+      --muted: #7a7065;
+      --rule: #c8bfad;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ── MASTHEAD ── */
+    .masthead {
+      border-bottom: 3px double var(--ink);
+      padding: 2rem 4rem 1.5rem;
+      position: relative;
+    }
+    .masthead::before {
+      content: '';
+      display: block;
+      border-top: 1px solid var(--ink);
+      margin-bottom: 1.2rem;
+    }
+    .masthead-dateline {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 0.6rem;
+    }
+    .masthead-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      font-weight: 900;
+      line-height: 0.9;
+      text-align: center;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.6rem;
+    }
+    .masthead-name em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .masthead-tagline {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      padding: 0.5rem 0;
+      margin-top: 0.8rem;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--ink);
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 2px solid var(--accent);
+    }
+    nav a {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--paper);
+      text-decoration: none;
+      padding: 0.85rem 1.4rem;
+      transition: background 0.2s, color 0.2s;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    nav a:first-child { border-left: 1px solid rgba(255,255,255,0.1); }
+    nav a:hover, nav a.active { background: var(--accent); color: #fff; }
+
+    /* ── LAYOUT ── */
+    .page-section { display: none; padding: 4rem; max-width: 1100px; margin: 0 auto; }
+    .page-section.active { display: block; }
+
+    /* ── SECTION HEADERS ── */
+    .section-flag {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      margin-bottom: 2.5rem;
+    }
+    .section-flag::before, .section-flag::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-flag span {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .section-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+    .section-dek {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 60ch;
+      margin-bottom: 3rem;
+      font-style: italic;
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* ── HOME / BIO ── */
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .bio-photo-placeholder {
+      aspect-ratio: 3/4;
+      background: var(--cream);
+      border: 1px solid var(--rule);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      color: var(--muted);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      position: relative;
+      overflow: hidden;
+    }
+    .bio-photo-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 8px,
+        rgba(0,0,0,0.03) 8px,
+        rgba(0,0,0,0.03) 9px
+      );
+    }
+    .bio-photo-placeholder svg {
+      width: 48px; height: 48px;
+      opacity: 0.3;
+    }
+    .bio-upload-hint {
+      font-size: 0.6rem;
+      opacity: 0.6;
+      text-align: center;
+      padding: 0 1rem;
+    }
+    .bio-content {}
+    .bio-pull-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      line-height: 1.4;
+      border-left: 4px solid var(--accent);
+      padding-left: 1.2rem;
+      margin-bottom: 2rem;
+      color: var(--accent2);
+    }
+    .bio-body p {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      margin-bottom: 1.2rem;
+      color: var(--ink);
+    }
+    .bio-body p:first-child::first-letter {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5em;
+      font-weight: 900;
+      float: left;
+      line-height: 0.75;
+      margin: 0.05em 0.08em 0 0;
+      color: var(--accent);
+    }
+    .bio-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+    }
+    .bio-link {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      text-decoration: none;
+      color: var(--ink);
+      transition: color 0.2s;
+    }
+    .bio-link:hover { color: var(--accent); }
+    .bio-link-label {
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      min-width: 80px;
+    }
+
+    /* ── RESUME ── */
+    .resume-wrapper {
+      border: 1px solid var(--rule);
+      background: white;
+    }
+    .resume-header {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 2.5rem 3rem;
+    }
+    .resume-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+    .resume-header .resume-title {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .resume-contact {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      color: rgba(245,240,232,0.7);
+    }
+    .resume-body {
+      padding: 2.5rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 2.5rem;
+    }
+    .resume-col-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 0.4rem;
+      margin-bottom: 1.2rem;
+    }
+    .resume-item { margin-bottom: 1.4rem; }
+    .resume-item h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.1rem;
+    }
+    .resume-item .meta {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+    .resume-item p, .resume-item li {
+      font-size: 0.82rem;
+      line-height: 1.7;
+      color: #333;
+    }
+    .resume-item ul { padding-left: 1.1rem; }
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+    }
+    .skill-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      background: var(--cream);
+      border: 1px solid var(--rule);
+      padding: 0.2rem 0.5rem;
+      color: var(--ink);
+    }
+    .resume-note {
+      grid-column: 1 / -1;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--muted);
+      text-align: center;
+      border-top: 1px solid var(--rule);
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    /* ── PORTFOLIO CATEGORIES ── */
+    .category-nav {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    .cat-btn {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.9rem;
+      background: transparent;
+      border: 1px solid var(--rule);
+      cursor: pointer;
+      color: var(--muted);
+      transition: all 0.2s;
+    }
+    .cat-btn:hover, .cat-btn.active {
+      background: var(--ink);
+      color: var(--paper);
+      border-color: var(--ink);
+    }
+
+    .category-panel { display: none; }
+    .category-panel.active { display: block; }
+
+    .cat-header {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.5rem;
+      align-items: start;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .cat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      font-weight: 900;
+      color: var(--rule);
+      line-height: 1;
+      margin-top: -0.3rem;
+    }
+    .cat-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    .cat-jea {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    /* Articles grid */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .article-card {
+      border: 1px solid var(--rule);
+      background: white;
+      padding: 1.5rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+    }
+    .article-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+    .article-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+    }
+    .article-type {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    .article-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 0.5rem;
+    }
+    .article-pub {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.62rem;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+    .article-desc {
+      font-size: 0.82rem;
+      line-height: 1.65;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    .article-link {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent2);
+      padding-bottom: 1px;
+      transition: color 0.2s;
+    }
+    .article-link:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* Placeholder add card */
+    .add-card {
+      border: 1px dashed var(--rule);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: var(--muted);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      min-height: 180px;
+      cursor: default;
+    }
+    .add-card svg { opacity: 0.3; width: 28px; height: 28px; }
+
+    /* Commentary box */
+    .commentary-box {
+      background: var(--cream);
+      border-left: 4px solid var(--accent2);
+      padding: 2rem 2.5rem;
+      margin-top: 2rem;
+    }
+    .commentary-box .box-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 0.8rem;
+    }
+    .commentary-box .box-prompt {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+    .commentary-box .word-count {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--rule);
+      margin-top: 0.8rem;
+    }
+
+    /* ── REFLECTIONS ── */
+    .reflection-sections { display: flex; flex-direction: column; gap: 3rem; }
+
+    .reflection-block {
+      border: 1px solid var(--rule);
+      background: white;
+    }
+    .reflection-block-header {
+      background: var(--accent2);
+      color: var(--paper);
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .reflection-block-header h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+    }
+    .reflection-word-req {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+    .reflection-body {
+      padding: 2rem;
+    }
+    .reflection-prompts {
+      margin-bottom: 1.5rem;
+    }
+    .reflection-prompt-item {
+      display: flex;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+    .reflection-prompt-item::before {
+      content: '▸';
+      color: var(--accent);
+      font-size: 0.75rem;
+      margin-top: 0.15rem;
+      flex-shrink: 0;
+    }
+    .reflection-placeholder {
+      background: var(--cream);
+      border: 1.5px dashed var(--rule);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .reflection-placeholder svg {
+      display: block;
+      margin: 0 auto 0.8rem;
+      opacity: 0.25;
+      width: 32px; height: 32px;
+    }
+
+    /* ── STAFF BIO SECTION ── */
+    .bio-section-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    .campanile-link-card {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 2.5rem;
+      text-decoration: none;
+      display: block;
+      transition: transform 0.2s;
+    }
+    .campanile-link-card:hover { transform: translateY(-3px); }
+    .campanile-link-card .cl-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+    .campanile-link-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-style: italic;
+      margin-bottom: 0.8rem;
+    }
+    .campanile-link-card p {
+      font-size: 0.82rem;
+      line-height: 1.7;
+      color: rgba(245,240,232,0.7);
+      margin-bottom: 1rem;
+    }
+    .campanile-link-card .cl-cta {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .bio-instructions {
+      padding: 2rem;
+      background: var(--cream);
+      border: 1px solid var(--rule);
+    }
+    .bio-instructions h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .bio-instructions ol {
+      padding-left: 1.2rem;
+    }
+    .bio-instructions li {
+      font-size: 0.82rem;
+      line-height: 1.75;
+      margin-bottom: 0.4rem;
+      color: var(--muted);
+    }
+    .bio-instructions li strong { color: var(--ink); }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 6rem;
+      border-top: 3px double var(--ink);
+      padding: 2rem 4rem;
+      text-align: center;
+    }
+    .footer-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-style: italic;
+      margin-bottom: 0.3rem;
+    }
+    .footer-meta {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .page-section.active > * {
+      animation: fadeUp 0.4s ease both;
+    }
+    .page-section.active > *:nth-child(2) { animation-delay: 0.06s; }
+    .page-section.active > *:nth-child(3) { animation-delay: 0.12s; }
+    .page-section.active > *:nth-child(4) { animation-delay: 0.18s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .masthead { padding: 1.5rem 1.5rem 1rem; }
+      .page-section { padding: 2rem 1.5rem; }
+      .bio-grid, .bio-section-grid, .resume-body { grid-template-columns: 1fr; }
+      nav { flex-wrap: wrap; }
+      nav a { padding: 0.7rem 0.9rem; font-size: 0.6rem; }
+      .cat-header { grid-template-columns: 1fr; }
+      .cat-number { font-size: 3rem; }
+      .resume-body { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <div class="masthead-dateline">Journalism Portfolio &nbsp;·&nbsp; The Campanile &nbsp;·&nbsp; Palo Alto High School &nbsp;·&nbsp; Spring 2025</div>
+    <div class="masthead-name">Asaf <em>Milman</em></div>
+    <div class="masthead-tagline">Reporter &nbsp;·&nbsp; Digital Journalist &nbsp;·&nbsp; Storyteller</div>
+  </header>
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <a href="#" class="nav-link active" data-section="home">About</a>
+    <a href="#" class="nav-link" data-section="bio">Staff Bio</a>
+    <a href="#" class="nav-link" data-section="resume">Résumé</a>
+    <a href="#" class="nav-link" data-section="portfolio">Portfolio</a>
+    <a href="#" class="nav-link" data-section="reflections">Reflections</a>
+  </nav>
+
+  <!-- ══════════════════════════════════ -->
+  <!-- HOME / ABOUT                       -->
+  <!-- ══════════════════════════════════ -->
+  <section class="page-section active" id="home">
+    <div class="section-flag"><span>About</span></div>
+    <div class="bio-grid">
+      <div>
+        <div class="bio-photo-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          <div>Your Photo Here</div>
+          <div class="bio-upload-hint">Replace this placeholder with a professional headshot in the HTML source</div>
+        </div>
+      </div>
+      <div class="bio-content">
+        <div class="bio-pull-quote">"Good journalism holds a mirror to society — and sometimes changes what it sees."</div>
+        <div class="bio-body">
+          <p>Welcome to my journalism portfolio. I'm Asaf Milman, a journalist and student reporter at The Campanile, the award-winning student newspaper of Palo Alto High School. This portfolio documents my growth, published work, and contributions to scholastic journalism.</p>
+          <p>Through my work in writing, reporting, and digital media, I've developed a commitment to accuracy, clarity, and accountability — the pillars of responsible journalism. This portfolio is both a time capsule of my semester's work and a living record of my evolving craft.</p>
+          <p>Explore my published articles, résumé, portfolio samples, and personal reflections using the navigation above.</p>
+        </div>
+        <div class="bio-links">
+          <a href="#" class="bio-link" onclick="showSection('bio'); return false;">
+            <span class="bio-link-label">Staff Bio</span>
+            <span>View all Campanile articles →</span>
+          </a>
+          <a href="#" class="bio-link" onclick="showSection('resume'); return false;">
+            <span class="bio-link-label">Résumé</span>
+            <span>Professional résumé for journalism roles →</span>
+          </a>
+          <a href="mailto:your.email@pausd.us" class="bio-link">
+            <span class="bio-link-label">Contact</span>
+            <span>your.email@pausd.us ← update this</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════ -->
+  <!-- STAFF BIO                          -->
+  <!-- ══════════════════════════════════ -->
+  <section class="page-section" id="bio">
+    <div class="section-flag"><span>Staff Bio</span></div>
+    <h2 class="section-headline">Campanile Staff Page</h2>
+    <p class="section-dek">My complete author archive on The Campanile — every article I've reported, written, and published.</p>
+    <div class="bio-section-grid">
+      <a href="https://thecampanile.org" target="_blank" class="campanile-link-card">
+        <!-- UPDATE THIS HREF TO YOUR ACTUAL STAFF BIO URL -->
+        <div class="cl-label">External Link</div>
+        <h3>The Campanile Staff Page</h3>
+        <p>Click to view my complete article archive on The Campanile website — the student newspaper of Palo Alto High School, consistently ranked among the nation's top scholastic publications.</p>
+        <div class="cl-cta">Visit thecampanile.org →</div>
+      </a>
+      <div class="bio-instructions">
+        <h4>Setup Instructions</h4>
+        <ol>
+          <li>Find your author page on <strong>thecampanile.org</strong></li>
+          <li>Copy the full URL (e.g. thecampanile.org/author/amilman)</li>
+          <li>Replace the <strong>href</strong> on the link card to the left with your URL</li>
+          <li>Verify all your articles are listed — contact Cindy or Annika if any are missing</li>
+          <li>Update the card text with a short note about your most significant work this semester</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════ -->
+  <!-- RÉSUMÉ                             -->
+  <!-- ══════════════════════════════════ -->
+  <section class="page-section" id="resume">
+    <div class="section-flag"><span>Résumé</span></div>
+    <h2 class="section-headline">Professional Résumé</h2>
+    <p class="section-dek">Tailored for college publications, journalism internships, and communications roles.</p>
+
+    <div class="resume-wrapper">
+      <div class="resume-header">
+        <h1>Asaf Milman</h1>
+        <div class="resume-title">Journalist &nbsp;·&nbsp; Reporter &nbsp;·&nbsp; Digital Media</div>
+        <div class="resume-contact">
+          <span>📍 Palo Alto, CA</span>
+          <span>✉ your.email@email.com</span>
+          <span>🔗 [Your Portfolio URL]</span>
+          <span>📞 (xxx) xxx-xxxx</span>
+        </div>
+      </div>
+      <div class="resume-body">
+
+        <!-- LEFT COLUMN -->
+        <div>
+          <div class="resume-col-label">Education</div>
+          <div class="resume-item">
+            <h3>Palo Alto High School</h3>
+            <div class="meta">Expected Graduation · June 2026 · GPA: X.X</div>
+            <p>Relevant coursework: Journalism, English, [add others]</p>
+          </div>
+
+          <div class="resume-col-label" style="margin-top:1.8rem">Skills</div>
+          <div class="resume-item">
+            <p style="margin-bottom:0.4rem; font-weight:500;">Journalism</p>
+            <div class="skill-tags">
+              <span class="skill-tag">News Writing</span>
+              <span class="skill-tag">Reporting</span>
+              <span class="skill-tag">AP Style</span>
+              <span class="skill-tag">Interviewing</span>
+              <span class="skill-tag">Fact-Checking</span>
+            </div>
+          </div>
+          <div class="resume-item">
+            <p style="margin-bottom:0.4rem; font-weight:500;">Digital &amp; Social</p>
+            <div class="skill-tags">
+              <span class="skill-tag">CMS / WordPress</span>
+              <span class="skill-tag">Social Media</span>
+              <span class="skill-tag">Web Publishing</span>
+              <span class="skill-tag">SEO Basics</span>
+            </div>
+          </div>
+          <div class="resume-item">
+            <p style="margin-bottom:0.4rem; font-weight:500;">Tools</p>
+            <div class="skill-tags">
+              <span class="skill-tag">Google Workspace</span>
+              <span class="skill-tag">Adobe Suite</span>
+              <span class="skill-tag">Canva</span>
+              <span class="skill-tag">[Add More]</span>
+            </div>
+          </div>
+
+          <div class="resume-col-label" style="margin-top:1.8rem">Awards &amp; Recognition</div>
+          <div class="resume-item">
+            <p style="font-style:italic; color: var(--muted);">Add any awards, honors, or recognition you have received here.</p>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div>
+          <div class="resume-col-label">Experience</div>
+          <div class="resume-item">
+            <h3>Reporter — The Campanile</h3>
+            <div class="meta">Palo Alto High School &nbsp;·&nbsp; [Start Date] – Present</div>
+            <ul>
+              <li>Write and report news, features, and opinion pieces for one of the nation's top-ranked high school newspapers</li>
+              <li>Conduct interviews with sources including students, faculty, administrators, and community members</li>
+              <li>Publish work across print and digital platforms, adhering to AP style and editorial standards</li>
+              <li>[Add a specific story or accomplishment — e.g., "Broke story on X, resulting in Y"]</li>
+            </ul>
+          </div>
+
+          <div class="resume-item">
+            <h3>[Other Position / Activity]</h3>
+            <div class="meta">[Organization] &nbsp;·&nbsp; [Dates]</div>
+            <ul>
+              <li>Add any other relevant experience, clubs, jobs, or activities here</li>
+              <li>Focus on transferable skills: leadership, communication, teamwork, deadlines</li>
+            </ul>
+          </div>
+
+          <div class="resume-col-label" style="margin-top:1.8rem">Volunteer &amp; Extracurriculars</div>
+          <div class="resume-item">
+            <h3>[Activity Name]</h3>
+            <div class="meta">[Organization] &nbsp;·&nbsp; [Dates]</div>
+            <p>Brief description of your role and impact.</p>
+          </div>
+
+          <div class="resume-col-label" style="margin-top:1.8rem">Objective</div>
+          <div class="resume-item">
+            <p>Motivated student journalist with hands-on experience in news reporting and digital media, seeking a college publications or communications internship opportunity where I can apply strong writing, research, and storytelling skills.</p>
+          </div>
+        </div>
+
+        <div class="resume-note">
+          ✦ &nbsp; Update all placeholder text with your actual information &nbsp; ✦ &nbsp; Keep to one page when printing &nbsp; ✦
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════ -->
+  <!-- PORTFOLIO CATEGORIES               -->
+  <!-- ══════════════════════════════════ -->
+  <section class="page-section" id="portfolio">
+    <div class="section-flag"><span>Portfolio</span></div>
+    <h2 class="section-headline">Work Samples</h2>
+    <p class="section-dek">Selected work organized by JEA portfolio standards. Each category includes samples and a 100-word commentary.</p>
+
+    <div class="category-nav">
+      <button class="cat-btn active" onclick="showCategory('writing', this)">Writing &amp; Reporting</button>
+      <button class="cat-btn" onclick="showCategory('web', this)">Web &amp; Social Media</button>
+    </div>
+
+    <!-- WRITING & REPORTING -->
+    <div class="category-panel active" id="cat-writing">
+      <div class="cat-header">
+        <div class="cat-number">01</div>
+        <div>
+          <div class="cat-title">Writing &amp; Reporting</div>
+          <div class="cat-jea">JEA Category 1 · News, Features, Opinion, Investigative</div>
+        </div>
+      </div>
+
+      <div class="articles-grid">
+        <!-- ARTICLE CARD 1 — PLACEHOLDER -->
+        <div class="article-card">
+          <div class="article-type">News</div>
+          <div class="article-title">Your Article Headline Goes Here</div>
+          <div class="article-pub">The Campanile &nbsp;·&nbsp; Month 2025</div>
+          <div class="article-desc">Add a 1–2 sentence description of this article: what it covered, why it mattered, and what your role was in reporting it.</div>
+          <a href="#" class="article-link">Read Article →</a>
+        </div>
+
+        <!-- ARTICLE CARD 2 — PLACEHOLDER -->
+        <div class="article-card">
+          <div class="article-type">Feature</div>
+          <div class="article-title">Second Article Headline</div>
+          <div class="article-pub">The Campanile &nbsp;·&nbsp; Month 2025</div>
+          <div class="article-desc">Add a 1–2 sentence description of what this piece covered and what skills it demonstrates — e.g., source diversity, narrative structure, etc.</div>
+          <a href="#" class="article-link">Read Article →</a>
+        </div>
+
+        <!-- ARTICLE CARD 3 — PLACEHOLDER -->
+        <div class="article-card">
+          <div class="article-type">Opinion</div>
+          <div class="article-title">Third Article or Work Sample</div>
+          <div class="article-pub">The Campanile &nbsp;·&nbsp; Month 2025</div>
+          <div class="article-desc">You can include work published elsewhere too — another publication, a personal blog, or a class assignment that demonstrates your range.</div>
+          <a href="#" class="article-link">Read Article →</a>
+        </div>
+
+        <div class="add-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          Add More Articles
+        </div>
+      </div>
+
+      <div class="commentary-box">
+        <div class="box-label">100-Word Commentary — Writing &amp; Reporting</div>
+        <div class="box-prompt">
+          Write your commentary here. Explain what you did in each piece and how this body of work relates to your personal growth as a journalist. What skills did you develop? What challenges did you face? What are you most proud of? Aim for ~100 words. Be specific — mention article titles, sources you interviewed, or techniques you tried. (This placeholder text is ~65 words — you'll want a bit more than this.)
+        </div>
+        <div class="word-count">Target: ~100 words</div>
+      </div>
+    </div>
+
+    <!-- WEB & SOCIAL MEDIA -->
+    <div class="category-panel" id="cat-web">
+      <div class="cat-header">
+        <div class="cat-number">07</div>
+        <div>
+          <div class="cat-title">Web &amp; Social Media</div>
+          <div class="cat-jea">JEA Category 7 · Digital Publishing, Social Strategy, Audience Growth</div>
+        </div>
+      </div>
+
+      <div class="articles-grid">
+        <div class="article-card">
+          <div class="article-type">Social Media</div>
+          <div class="article-title">Your Digital / Social Work Sample</div>
+          <div class="article-pub">Platform / Publication &nbsp;·&nbsp; Month 2025</div>
+          <div class="article-desc">Describe a social post, digital story, web feature, or online engagement initiative. Include screenshots or links if possible.</div>
+          <a href="#" class="article-link">View Sample →</a>
+        </div>
+
+        <div class="article-card">
+          <div class="article-type">Web Content</div>
+          <div class="article-title">Another Web/Digital Work Sample</div>
+          <div class="article-pub">Platform / Publication &nbsp;·&nbsp; Month 2025</div>
+          <div class="article-desc">This could be a multimedia piece, an interactive element, a data visualization, or evidence of your digital journalism skills.</div>
+          <a href="#" class="article-link">View Sample →</a>
+        </div>
+
+        <div class="add-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          Add More Samples
+        </div>
+      </div>
+
+      <div class="commentary-box">
+        <div class="box-label">100-Word Commentary — Web &amp; Social Media</div>
+        <div class="box-prompt">
+          Write your commentary here. Describe your work in digital and social media journalism this semester. What platforms did you use? What was your strategy for reaching audiences? What did you learn about online storytelling versus print? How did your digital work complement your reporting? Be specific — reference actual posts, metrics, or initiatives you contributed to. Aim for ~100 words.
+        </div>
+        <div class="word-count">Target: ~100 words</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════ -->
+  <!-- REFLECTIONS                        -->
+  <!-- ══════════════════════════════════ -->
+  <section class="page-section" id="reflections">
+    <div class="section-flag"><span>Reflections</span></div>
+    <h2 class="section-headline">Reflective Self-Assessment</h2>
+    <p class="section-dek">Required reflective writing addressing growth, challenges, and impact — per JEA portfolio standards.</p>
+
+    <div class="reflection-sections">
+
+      <!-- MAJOR REFLECTION -->
+      <div class="reflection-block">
+        <div class="reflection-block-header">
+          <h3>Major Reflection — Semester Self-Assessment</h3>
+          <span class="reflection-word-req">500 words minimum</span>
+        </div>
+        <div class="reflection-body">
+          <div class="reflection-prompts">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:0.8rem;">Suggested prompts — address some or all:</div>
+            <div class="reflection-prompt-item">Reflect on your current growth in scholastic media and how being part of Campanile has shaped you.</div>
+            <div class="reflection-prompt-item">Explain challenges you have faced (censorship, staff conflict, balancing obligations, tech obstacles, etc.) and how you addressed them.</div>
+            <div class="reflection-prompt-item">Write about the impact of high school journalism on your life so far and your expectations for future endeavors.</div>
+            <div class="reflection-prompt-item">Address the transfer of hard journalism skills and soft workplace skills. Where have you used your Campanile experience outside of class?</div>
+            <div class="reflection-prompt-item">Explain any non-bylined work this semester (coding, field trips, photography, helping others, etc.) that should count toward your contribution.</div>
+            <div class="reflection-prompt-item"><em>Optional:</em> Reflect on the state of journalism and your role in it. What have readings, guest speakers, or conversations revealed to you?</div>
+          </div>
+          <div class="reflection-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            Write your 500+ word major reflection here
+          </div>
+        </div>
+      </div>
+
+      <!-- MINOR REFLECTIONS NOTE -->
+      <div class="reflection-block">
+        <div class="reflection-block-header" style="background: var(--accent);">
+          <h3>Minor Category Commentaries</h3>
+          <span class="reflection-word-req">~100 words each · 5 categories minimum</span>
+        </div>
+        <div class="reflection-body">
+          <p style="font-size:0.85rem;line-height:1.75;color:var(--muted);margin-bottom:1.2rem;">
+            Your 100-word commentaries live inside each portfolio category (see the <strong>Portfolio</strong> tab). Navigate there to fill them in. You need commentaries for at least 5 categories — you have two active categories: Writing &amp; Reporting and Web &amp; Social Media. Consider adding more categories if you have additional work samples.
+          </p>
+          <div style="display:flex;gap:0.6rem;flex-wrap:wrap;">
+            <span class="skill-tag" style="background:white;color:var(--ink);">✓ Writing &amp; Reporting — commentary needed</span>
+            <span class="skill-tag" style="background:white;color:var(--ink);">✓ Web &amp; Social Media — commentary needed</span>
+            <span class="skill-tag" style="background:var(--cream);color:var(--muted);">+ Add more categories as needed</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-name">Asaf Milman</div>
+    <div class="footer-meta">The Campanile &nbsp;·&nbsp; Palo Alto High School &nbsp;·&nbsp; Spring 2025 &nbsp;·&nbsp; Journalism Portfolio</div>
+  </footer>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.nav-link').forEach(a => a.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      document.querySelector(`[data-section="${id}"]`)?.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showCategory(id, btn) {
+      document.querySelectorAll('.category-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('cat-' + id).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        showSection(link.dataset.section);
+      });
+    });
+  </script>
+</body>
+</html>
