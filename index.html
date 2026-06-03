@@ -1,58 +1,612 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.4">
-  <style type="text/css">
-    body {background-color: #f2ece2}
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 8.2px 'Helvetica Neue'; color: #665d52; -webkit-text-stroke: #665d52}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 64.0px 'Helvetica Neue'; color: #ba2521; -webkit-text-stroke: #ba2521}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 8.6px 'Helvetica Neue'; color: #665d52; -webkit-text-stroke: #665d52}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 8.2px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff; background-color: #ba2521}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 8.2px 'Helvetica Neue'; color: #f2ece2; -webkit-text-stroke: #f2ece2}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 7.8px 'Helvetica Neue'; color: #665d52; -webkit-text-stroke: #665d52}
-    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 8.6px 'Helvetica Neue'; color: #665d52; -webkit-text-stroke: #665d52; min-height: 10.0px}
-    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 8.6px 'Helvetica Neue'; color: #665d52; -webkit-text-stroke: #665d52}
-    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 7.2px 'Helvetica Neue'; color: #665d52; -webkit-text-stroke: #665d52}
-    p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; font: 18.0px 'Helvetica Neue'; color: #152b4a; -webkit-text-stroke: #152b4a}
-    p.p11 {margin: 0.0px 0.0px 14.4px 0.0px; font: 11.4px 'Helvetica Neue'; color: #0d0d0b; -webkit-text-stroke: #0d0d0b}
-    p.p12 {margin: 0.0px 0.0px 0.0px 0.0px; font: 7.0px 'Helvetica Neue'; color: #665d52; -webkit-text-stroke: #665d52}
-    p.p13 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px 'Helvetica Neue'; color: #0d0d0b; -webkit-text-stroke: #0d0d0b}
-    p.p14 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 14.4px 'Helvetica Neue'; color: #0d0d0b; -webkit-text-stroke: #0d0d0b}
-    p.p15 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 7.4px 'Helvetica Neue'; color: #665d52; -webkit-text-stroke: #665d52}
-    span.s1 {font-kerning: none}
-    span.s2 {font-kerning: none; color: #0d0d0b; -webkit-text-stroke: 0px #0d0d0b}
-    span.s3 {font-kerning: none; background-color: #0d0d0b}
-    span.s4 {font-kerning: none; background-color: #e7e2d1}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asaf Milman — Journalism Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #0f0e0c;
+      --paper: #f5f0e8;
+      --cream: #ece7da;
+      --accent: #c8392b;
+      --accent2: #1a3a5c;
+      --muted: #7a7065;
+      --rule: #c8bfad;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', sans-serif; font-weight: 300; overflow-x: hidden; }
+
+    /* MASTHEAD */
+    .masthead { border-bottom: 3px double var(--ink); padding: 2rem 4rem 1.5rem; }
+    .masthead::before { content:''; display:block; border-top:1px solid var(--ink); margin-bottom:1.2rem; }
+    .masthead-dateline { font-family:'IBM Plex Mono',monospace; font-size:.68rem; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); text-align:center; margin-bottom:.6rem; }
+    .masthead-name { font-family:'Playfair Display',serif; font-size:clamp(3.5rem,8vw,7rem); font-weight:900; line-height:.9; text-align:center; letter-spacing:-.02em; margin-bottom:.6rem; }
+    .masthead-name em { font-style:italic; color:var(--accent); }
+    .masthead-tagline { font-family:'IBM Plex Mono',monospace; font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; text-align:center; color:var(--muted); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:.5rem 0; margin-top:.8rem; }
+
+    /* NAV */
+    nav { background:var(--ink); display:flex; justify-content:center; position:sticky; top:0; z-index:100; border-bottom:2px solid var(--accent); }
+    nav a { font-family:'IBM Plex Mono',monospace; font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; color:var(--paper); text-decoration:none; padding:.85rem 1.4rem; transition:background .2s,color .2s; border-right:1px solid rgba(255,255,255,.1); }
+    nav a:first-child { border-left:1px solid rgba(255,255,255,.1); }
+    nav a:hover, nav a.active { background:var(--accent); color:#fff; }
+
+    /* LAYOUT */
+    .page-section { display:none; padding:4rem; max-width:1100px; margin:0 auto; }
+    .page-section.active { display:block; }
+
+    /* SECTION HEADERS */
+    .section-flag { display:flex; align-items:center; gap:1.2rem; margin-bottom:2.5rem; }
+    .section-flag::before,.section-flag::after { content:''; flex:1; height:1px; background:var(--rule); }
+    .section-flag span { font-family:'IBM Plex Mono',monospace; font-size:.65rem; letter-spacing:.25em; text-transform:uppercase; color:var(--muted); white-space:nowrap; }
+    .section-headline { font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3.2rem); font-weight:700; line-height:1.1; margin-bottom:.5rem; }
+    .section-dek { font-size:1rem; color:var(--muted); line-height:1.6; max-width:60ch; margin-bottom:3rem; font-style:italic; font-family:'Playfair Display',serif; }
+
+    /* HOME / BIO */
+    .bio-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
+    .bio-photo-placeholder { aspect-ratio:3/4; background:var(--cream); border:1px solid var(--rule); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.8rem; color:var(--muted); font-family:'IBM Plex Mono',monospace; font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; position:relative; overflow:hidden; }
+    .bio-photo-placeholder::before { content:''; position:absolute; inset:0; background:repeating-linear-gradient(45deg,transparent,transparent 8px,rgba(0,0,0,.03) 8px,rgba(0,0,0,.03) 9px); }
+    .bio-photo-placeholder svg { width:48px; height:48px; opacity:.3; }
+    .bio-upload-hint { font-size:.6rem; opacity:.6; text-align:center; padding:0 1rem; }
+    .bio-pull-quote { font-family:'Playfair Display',serif; font-size:1.5rem; font-style:italic; line-height:1.4; border-left:4px solid var(--accent); padding-left:1.2rem; margin-bottom:2rem; color:var(--accent2); }
+    .bio-body p { font-size:.95rem; line-height:1.85; margin-bottom:1.2rem; }
+    .bio-body p:first-child::first-letter { font-family:'Playfair Display',serif; font-size:3.5em; font-weight:900; float:left; line-height:.75; margin:.05em .08em 0 0; color:var(--accent); }
+    .bio-links { display:flex; flex-direction:column; gap:.6rem; margin-top:2rem; padding-top:1.5rem; border-top:1px solid var(--rule); }
+    .bio-link { display:flex; align-items:center; gap:.8rem; font-family:'IBM Plex Mono',monospace; font-size:.75rem; text-decoration:none; color:var(--ink); transition:color .2s; }
+    .bio-link:hover { color:var(--accent); }
+    .bio-link-label { font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); min-width:80px; }
+
+    /* RESUME */
+    .resume-wrapper { border:1px solid var(--rule); background:white; }
+    .resume-header { background:var(--ink); color:var(--paper); padding:2.5rem 3rem; }
+    .resume-header h1 { font-family:'Playfair Display',serif; font-size:2.4rem; font-weight:700; margin-bottom:.3rem; }
+    .resume-header .resume-title { font-family:'IBM Plex Mono',monospace; font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:1rem; }
+    .resume-contact { display:flex; gap:2rem; flex-wrap:wrap; font-family:'IBM Plex Mono',monospace; font-size:.72rem; color:rgba(245,240,232,.7); }
+    .resume-body { padding:2.5rem 3rem; display:grid; grid-template-columns:1fr 1.6fr; gap:2.5rem; }
+    .resume-col-label { font-family:'IBM Plex Mono',monospace; font-size:.6rem; letter-spacing:.25em; text-transform:uppercase; color:var(--accent); border-bottom:2px solid var(--accent); padding-bottom:.4rem; margin-bottom:1.2rem; }
+    .resume-item { margin-bottom:1.4rem; }
+    .resume-item h3 { font-family:'Playfair Display',serif; font-size:.95rem; font-weight:700; margin-bottom:.1rem; }
+    .resume-item .meta { font-family:'IBM Plex Mono',monospace; font-size:.65rem; color:var(--muted); margin-bottom:.4rem; }
+    .resume-item p, .resume-item li { font-size:.82rem; line-height:1.7; color:#333; }
+    .resume-item ul { padding-left:1.1rem; }
+    .skill-tags { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.5rem; }
+    .skill-tag { font-family:'IBM Plex Mono',monospace; font-size:.62rem; letter-spacing:.08em; background:var(--cream); border:1px solid var(--rule); padding:.2rem .5rem; color:var(--ink); }
+    .resume-note { grid-column:1/-1; font-family:'IBM Plex Mono',monospace; font-size:.65rem; color:var(--muted); text-align:center; border-top:1px solid var(--rule); padding-top:1rem; margin-top:.5rem; }
+
+    /* PORTFOLIO */
+    .category-nav { display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom:3rem; }
+    .cat-btn { font-family:'IBM Plex Mono',monospace; font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; padding:.4rem .9rem; background:transparent; border:1px solid var(--rule); cursor:pointer; color:var(--muted); transition:all .2s; }
+    .cat-btn:hover,.cat-btn.active { background:var(--ink); color:var(--paper); border-color:var(--ink); }
+    .category-panel { display:none; }
+    .category-panel.active { display:block; }
+    .cat-header { display:grid; grid-template-columns:auto 1fr; gap:1.5rem; align-items:start; margin-bottom:2.5rem; padding-bottom:2rem; border-bottom:1px solid var(--rule); }
+    .cat-number { font-family:'Playfair Display',serif; font-size:5rem; font-weight:900; color:var(--rule); line-height:1; margin-top:-.3rem; }
+    .cat-title { font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; margin-bottom:.4rem; }
+    .cat-jea { font-family:'IBM Plex Mono',monospace; font-size:.65rem; color:var(--muted); letter-spacing:.1em; }
+
+    /* ARTICLE CARDS — magazine style */
+    .articles-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2.5rem 2rem; margin-bottom:2.5rem; }
+    .article-card { background:transparent; display:flex; flex-direction:column; }
+    .article-card:hover .article-img img { transform:scale(1.03); }
+    .article-img { width:100%; aspect-ratio:3/2; overflow:hidden; margin-bottom:1rem; background:var(--cream); position:relative; }
+    .article-img img { width:100%; height:100%; object-fit:cover; transition:transform .4s ease; display:block; }
+    .article-img-placeholder { width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:var(--cream); }
+    .article-img-placeholder svg { width:36px; height:36px; opacity:.2; }
+    .pub-badge { display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:.55rem; letter-spacing:.12em; text-transform:uppercase; padding:.15rem .45rem; margin-bottom:.55rem; }
+    .pub-badge.campanile { background:var(--accent); color:white; }
+    .pub-badge.verde { background:var(--accent2); color:white; }
+    .article-type { font-family:'IBM Plex Mono',monospace; font-size:.58rem; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin-bottom:.4rem; }
+    .article-title { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; font-style:italic; line-height:1.35; margin-bottom:.6rem; }
+    .article-pub { font-family:'IBM Plex Mono',monospace; font-size:.6rem; color:var(--muted); margin-bottom:.7rem; }
+    .article-desc { font-size:.85rem; line-height:1.7; color:#444; margin-bottom:.9rem; flex:1; }
+    .article-link { font-family:'IBM Plex Mono',monospace; font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); text-decoration:none; display:inline-flex; align-items:center; gap:.3rem; transition:gap .2s,color .2s; }
+    .article-link:hover { color:var(--accent2); gap:.6rem; }
+    @media(max-width:900px){ .articles-grid{ grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:600px){ .articles-grid{ grid-template-columns:1fr; } }
+
+    /* COMMENTARY BOX */
+    .commentary-box { background:var(--cream); border-left:4px solid var(--accent2); padding:2rem 2.5rem; margin-top:2rem; }
+    .commentary-box .box-label { font-family:'IBM Plex Mono',monospace; font-size:.6rem; letter-spacing:.25em; text-transform:uppercase; color:var(--accent2); margin-bottom:.8rem; }
+    .commentary-box .box-prompt { font-family:'Playfair Display',serif; font-style:italic; font-size:.95rem; line-height:1.7; color:var(--muted); }
+    .commentary-box .word-count { font-family:'IBM Plex Mono',monospace; font-size:.6rem; color:var(--rule); margin-top:.8rem; }
+
+    /* STAFF BIO */
+    .bio-section-grid { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; align-items:start; }
+    .campanile-link-card { background:var(--ink); color:var(--paper); padding:2.5rem; text-decoration:none; display:block; transition:transform .2s; }
+    .campanile-link-card:hover { transform:translateY(-3px); }
+    .campanile-link-card .cl-label { font-family:'IBM Plex Mono',monospace; font-size:.6rem; letter-spacing:.25em; text-transform:uppercase; color:var(--accent); margin-bottom:.8rem; }
+    .campanile-link-card h3 { font-family:'Playfair Display',serif; font-size:1.4rem; font-style:italic; margin-bottom:.8rem; }
+    .campanile-link-card p { font-size:.82rem; line-height:1.7; color:rgba(245,240,232,.7); margin-bottom:1rem; }
+    .campanile-link-card .cl-cta { font-family:'IBM Plex Mono',monospace; font-size:.65rem; letter-spacing:.15em; text-transform:uppercase; color:var(--accent); }
+    .verde-link-card { background:var(--accent2); color:var(--paper); padding:2.5rem; text-decoration:none; display:block; transition:transform .2s; margin-top:1.5rem; }
+    .verde-link-card:hover { transform:translateY(-3px); }
+    .bio-instructions { padding:2rem; background:var(--cream); border:1px solid var(--rule); }
+    .bio-instructions h4 { font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; margin-bottom:1rem; }
+    .bio-instructions ol { padding-left:1.2rem; }
+    .bio-instructions li { font-size:.82rem; line-height:1.75; margin-bottom:.4rem; color:var(--muted); }
+    .bio-instructions li strong { color:var(--ink); }
+
+    /* REFLECTIONS */
+    .reflection-sections { display:flex; flex-direction:column; gap:3rem; }
+    .reflection-block { border:1px solid var(--rule); background:white; }
+    .reflection-block-header { background:var(--accent2); color:var(--paper); padding:1.2rem 2rem; display:flex; justify-content:space-between; align-items:center; }
+    .reflection-block-header h3 { font-family:'Playfair Display',serif; font-size:1.1rem; font-style:italic; }
+    .reflection-word-req { font-family:'IBM Plex Mono',monospace; font-size:.6rem; letter-spacing:.12em; text-transform:uppercase; opacity:.7; }
+    .reflection-body { padding:2rem; }
+    .reflection-prompt-item { display:flex; gap:.8rem; margin-bottom:.8rem; font-size:.85rem; line-height:1.6; color:var(--muted); }
+    .reflection-prompt-item::before { content:'▸'; color:var(--accent); font-size:.75rem; margin-top:.15rem; flex-shrink:0; }
+    .reflection-placeholder { background:var(--cream); border:1.5px dashed var(--rule); padding:2.5rem 2rem; text-align:center; font-family:'IBM Plex Mono',monospace; font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+    .reflection-placeholder svg { display:block; margin:0 auto .8rem; opacity:.25; width:32px; height:32px; }
+
+    /* FOOTER */
+    footer { margin-top:6rem; border-top:3px double var(--ink); padding:2rem 4rem; text-align:center; }
+    .footer-name { font-family:'Playfair Display',serif; font-size:1.2rem; font-style:italic; margin-bottom:.3rem; }
+    .footer-meta { font-family:'IBM Plex Mono',monospace; font-size:.62rem; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+    .page-section.active > * { animation:fadeUp .4s ease both; }
+    .page-section.active > *:nth-child(2){animation-delay:.06s}
+    .page-section.active > *:nth-child(3){animation-delay:.12s}
+    .page-section.active > *:nth-child(4){animation-delay:.18s}
+    .page-section.active > *:nth-child(5){animation-delay:.24s}
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      .masthead{padding:1.5rem 1.5rem 1rem}
+      .page-section{padding:2rem 1.5rem}
+      .bio-grid,.bio-section-grid,.resume-body{grid-template-columns:1fr}
+      nav{flex-wrap:wrap}
+      nav a{padding:.7rem .9rem;font-size:.6rem}
+      .cat-header{grid-template-columns:1fr}
+      .cat-number{font-size:3rem}
+      .resume-body{padding:1.5rem}
+    }
   </style>
 </head>
 <body>
-<p class="p1"><span class="s1">JOURNALISM PORTFOLIO  ·  THE CAMPANILE &amp; VERDE MAGAZINE  ·  PALO ALTO HIGH SCHOOL  ·  SPRING 2026</span></p>
-<p class="p2"><span class="s2">Asaf </span><span class="s1">Milman</span></p>
-<p class="p3"><span class="s1">STAFF WRITER  ·  THE CAMPANILE  ·  VERDE MAGAZINE  ·  PALO ALTO HIGH SCHOOL</span></p>
-<p class="p4"><span class="s1">ABOUT</span></p>
-<p class="p5"><span class="s3">STAFF BIO</span></p>
-<p class="p5"><span class="s3">RÉSUMÉ</span></p>
-<p class="p5"><span class="s3">PORTFOLIO</span></p>
-<p class="p5"><span class="s3">REFLECTIONS</span></p>
-<p class="p6"><span class="s1">ABOUT</span></p>
-<p class="p7"><span class="s1"></span><br></p>
-<p class="p8"><span class="s4">YOUR PHOTO HERE</span></p>
-<p class="p9"><span class="s4">REPLACE WITH A PROFESSIONAL HEADSHOT — UPLOAD AN IMAGE AND CHANGE THIS &lt;DIV&gt; TO AN &lt;IMG&gt; TAG</span></p>
-<p class="p10"><span class="s1">"Journalism is the first draft of history — and every story begins with curiosity."</span></p>
-<p class="p11"><span class="s1">Welcome to my journalism portfolio. I'm Asaf Milman, a staff writer for both The Campanile and Verde Magazine, the student publications of Palo Alto High School. This portfolio documents my work, growth, and contributions across a range of beats — from local government and education to science, environment, and community issues.</span></p>
-<p class="p11"><span class="s1">My reporting this semester has taken me from the streets of East Palo Alto to the halls of Paly, covering stories that matter to my community. I believe journalism's power lies in specificity: the right quote, the right source, the right detail that makes a story come alive.</span></p>
-<p class="p11"><span class="s1">Explore my published work, résumé, portfolio samples, and personal reflections using the navigation above.</span></p>
-<p class="p12"><span class="s1"><a href="https://thecampanile.org/staff_name/asaf-milman/">CAMPANILE</a></span></p>
-<p class="p13"><span class="s1"><a href="https://thecampanile.org/staff_name/asaf-milman/">thecampanile.org/staff_name/asaf-milman/ →</a></span></p>
-<p class="p12"><span class="s1"><a href="https://verdemagazine.com/staff_name/asaf-milman">VERDE</a></span></p>
-<p class="p13"><span class="s1"><a href="https://verdemagazine.com/staff_name/asaf-milman">verdemagazine.com/staff_name/asaf-milman →</a></span></p>
-<p class="p12"><span class="s1"><a href="mailto:your.email@pausd.us">CONTACT</a></span></p>
-<p class="p13"><span class="s1"><a href="mailto:your.email@pausd.us">your.email@pausd.us ← update this</a></span></p>
-<p class="p14"><span class="s1">Asaf Milman</span></p>
-<p class="p15"><span class="s1">THE CAMPANILE &amp; VERDE MAGAZINE  ·  PALO ALTO HIGH SCHOOL  ·  SPRING 2026  ·  JOURNALISM PORTFOLIO</span></p>
+
+  <header class="masthead">
+    <div class="masthead-dateline">Journalism Portfolio &nbsp;·&nbsp; The Campanile &amp; Verde Magazine &nbsp;·&nbsp; Palo Alto High School &nbsp;·&nbsp; Spring 2026</div>
+    <div class="masthead-name">Asaf <em>Milman</em></div>
+    <div class="masthead-tagline">Staff Writer &nbsp;·&nbsp; The Campanile &nbsp;·&nbsp; Verde Magazine &nbsp;·&nbsp; Palo Alto High School</div>
+  </header>
+
+  <nav id="main-nav">
+    <a href="#" class="nav-link active" data-section="home">About</a>
+    <a href="#" class="nav-link" data-section="bio">Staff Bio</a>
+    <a href="#" class="nav-link" data-section="resume">Résumé</a>
+    <a href="#" class="nav-link" data-section="portfolio">Portfolio</a>
+    <a href="#" class="nav-link" data-section="reflections">Reflections</a>
+  </nav>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section class="page-section active" id="home">
+    <div class="section-flag"><span>About</span></div>
+    <div class="bio-grid">
+      <div>
+        <div class="bio-photo-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          <div>Your Photo Here</div>
+          <div class="bio-upload-hint">Replace with a professional headshot — upload an image and change this &lt;div&gt; to an &lt;img&gt; tag</div>
+        </div>
+      </div>
+      <div class="bio-content">
+        <div class="bio-pull-quote">"Journalism is the first draft of history — and every story begins with curiosity."</div>
+        <div class="bio-body">
+          <p>Welcome to my journalism portfolio. I'm Asaf Milman, a staff writer for both The Campanile and Verde Magazine, the student publications of Palo Alto High School. This portfolio documents my work, growth, and contributions across a range of beats — from local government and education to science, environment, and community issues.</p>
+          <p>My reporting this semester has taken me from the streets of East Palo Alto to the halls of Paly, covering stories that matter to my community. I believe journalism's power lies in specificity: the right quote, the right source, the right detail that makes a story come alive.</p>
+          <p>Explore my published work, résumé, portfolio samples, and personal reflections using the navigation above.</p>
+        </div>
+        <div class="bio-links">
+          <a href="https://thecampanile.org/staff_name/asaf-milman/" target="_blank" class="bio-link">
+            <span class="bio-link-label">Campanile</span>
+            <span>thecampanile.org/staff_name/asaf-milman/ →</span>
+          </a>
+          <a href="https://verdemagazine.com/staff_name/asaf-milman" target="_blank" class="bio-link">
+            <span class="bio-link-label">Verde</span>
+            <span>verdemagazine.com/staff_name/asaf-milman →</span>
+          </a>
+          <a href="mailto:your.email@pausd.us" class="bio-link">
+            <span class="bio-link-label">Contact</span>
+            <span>your.email@pausd.us ← update this</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STAFF BIO ═══ -->
+  <section class="page-section" id="bio">
+    <div class="section-flag"><span>Staff Bio</span></div>
+    <h2 class="section-headline">Author Archives</h2>
+    <p class="section-dek">My complete article archives across both Paly student publications.</p>
+    <div class="bio-section-grid">
+      <div>
+        <a href="https://thecampanile.org/staff_name/asaf-milman/" target="_blank" class="campanile-link-card">
+          <div class="cl-label">The Campanile — Staff Archive</div>
+          <h3>All Campanile Articles</h3>
+          <p>View my complete archive at The Campanile, Palo Alto High School's award-winning student newspaper. Coverage includes news, opinion, science/tech, and spotlight features.</p>
+          <div class="cl-cta">thecampanile.org/staff_name/asaf-milman →</div>
+        </a>
+        <a href="https://verdemagazine.com/staff_name/asaf-milman" target="_blank" class="verde-link-card">
+          <div class="cl-label" style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(245,240,232,.6);margin-bottom:.8rem;">Verde Magazine — Staff Archive</div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-style:italic;margin-bottom:.8rem;">All Verde Articles</h3>
+          <p style="font-size:.82rem;line-height:1.7;color:rgba(245,240,232,.7);margin-bottom:1rem;">My work at Verde Magazine, Paly's arts and culture publication, covering community issues and local affairs.</p>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,240,232,.8);">verdemagazine.com/staff_name/asaf-milman →</div>
+        </a>
+      </div>
+      <div class="bio-instructions">
+        <h4>Keeping Your Archive Up to Date</h4>
+        <ol>
+          <li>Verify all your articles appear on both staff pages — if any are missing, contact <strong>Cindy or Annika</strong></li>
+          <li>Your Campanile staff bio should list every article from your time on Campy, not just this semester</li>
+          <li>Check that your byline is correct on all co-authored pieces</li>
+          <li>This portfolio links directly to both archives — update the hrefs above if your author URL changes</li>
+        </ol>
+        <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--rule);">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;">Published This Semester</div>
+          <div style="font-size:.82rem;line-height:2;color:var(--ink);">
+            <div>📰 East Palo Alto zero homicides story <span style="color:var(--muted);font-size:.75rem;">— Campanile, March 17</span></div>
+            <div>📰 Community college deserves respect <span style="color:var(--muted);font-size:.75rem;">— Campanile, March 30</span></div>
+            <div>📰 Climate In Crisis <span style="color:var(--muted);font-size:.75rem;">— Campanile, April 15</span></div>
+            <div>📰 Memorization strategies article <span style="color:var(--muted);font-size:.75rem;">— Campanile, May 2</span></div>
+            <div>📗 RV landlords editorial <span style="color:var(--muted);font-size:.75rem;">— Verde, Feb 23</span></div>
+            <div>📗 Two co-authored pieces <span style="color:var(--muted);font-size:.75rem;">— Verde, Feb 14 &amp; 18</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ RÉSUMÉ ═══ -->
+  <section class="page-section" id="resume">
+    <div class="section-flag"><span>Résumé</span></div>
+    <h2 class="section-headline">Professional Résumé</h2>
+    <p class="section-dek">Tailored for college publications, journalism internships, and communications roles.</p>
+    <div class="resume-wrapper">
+      <div class="resume-header">
+        <h1>Asaf Milman</h1>
+        <div class="resume-title">Journalist &nbsp;·&nbsp; Staff Writer &nbsp;·&nbsp; Digital Media</div>
+        <div class="resume-contact">
+          <span>📍 Palo Alto, CA</span>
+          <span>✉ your.email@email.com</span>
+          <span>🔗 milmanasaf.github.io</span>
+          <span>📞 (xxx) xxx-xxxx</span>
+        </div>
+      </div>
+      <div class="resume-body">
+        <div>
+          <div class="resume-col-label">Education</div>
+          <div class="resume-item">
+            <h3>Palo Alto High School</h3>
+            <div class="meta">Expected Graduation · June 2027 · GPA: X.X</div>
+            <p>Relevant coursework: Journalism, English, [add others]</p>
+          </div>
+
+          <div class="resume-col-label" style="margin-top:1.8rem">Skills</div>
+          <div class="resume-item">
+            <p style="margin-bottom:.4rem;font-weight:500;">Journalism</p>
+            <div class="skill-tags">
+              <span class="skill-tag">News Reporting</span>
+              <span class="skill-tag">Feature Writing</span>
+              <span class="skill-tag">Opinion/Editorial</span>
+              <span class="skill-tag">AP Style</span>
+              <span class="skill-tag">Source Development</span>
+              <span class="skill-tag">Fact-Checking</span>
+            </div>
+          </div>
+          <div class="resume-item">
+            <p style="margin-bottom:.4rem;font-weight:500;">Beats Covered</p>
+            <div class="skill-tags">
+              <span class="skill-tag">Education</span>
+              <span class="skill-tag">Local Government</span>
+              <span class="skill-tag">Environment</span>
+              <span class="skill-tag">Science/Tech</span>
+              <span class="skill-tag">Community Issues</span>
+            </div>
+          </div>
+          <div class="resume-item">
+            <p style="margin-bottom:.4rem;font-weight:500;">Tools &amp; Platforms</p>
+            <div class="skill-tags">
+              <span class="skill-tag">WordPress/CMS</span>
+              <span class="skill-tag">Google Workspace</span>
+              <span class="skill-tag">Social Media</span>
+              <span class="skill-tag">[Add More]</span>
+            </div>
+          </div>
+
+          <div class="resume-col-label" style="margin-top:1.8rem">Awards &amp; Recognition</div>
+          <div class="resume-item">
+            <p style="font-style:italic;color:var(--muted);">Add any awards or honors here.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="resume-col-label">Experience</div>
+          <div class="resume-item">
+            <h3>Staff Writer — The Campanile</h3>
+            <div class="meta">Palo Alto High School · [Start Date] – Present</div>
+            <ul>
+              <li>Report, write, and publish articles across multiple beats including news, opinion, and science/technology for one of California's top-ranked scholastic newspapers</li>
+              <li>Broke local news on East Palo Alto's historic homicide-free years, interviewing UC Law SF criminal justice professor and EPAPD officials</li>
+              <li>Co-reported multi-part climate feature synthesizing local youth activists, policy analysis, and statewide wildfire data</li>
+              <li>Write opinion pieces tackling education equity and college access issues relevant to the Paly community</li>
+              <li>Adhere to AP style, editorial deadlines, and rigorous fact-checking standards across all published work</li>
+            </ul>
+          </div>
+          <div class="resume-item">
+            <h3>Staff Writer — Verde Magazine</h3>
+            <div class="meta">Palo Alto High School · [Start Date] – Present</div>
+            <ul>
+              <li>Contribute news and editorial pieces to Paly's arts, culture, and community magazine</li>
+              <li>Authored editorial advocating for equitable housing policy in Palo Alto's RV vanlording ordinance coverage</li>
+              <li>Collaborate with co-authors on complex community reporting requiring multiple sources and perspectives</li>
+            </ul>
+          </div>
+
+          <div class="resume-col-label" style="margin-top:1.8rem">Activities &amp; Extracurriculars</div>
+          <div class="resume-item">
+            <h3>[Activity Name]</h3>
+            <div class="meta">[Organization] · [Dates]</div>
+            <p>Add other clubs, sports, volunteer work, or activities here.</p>
+          </div>
+
+          <div class="resume-col-label" style="margin-top:1.8rem">Objective</div>
+          <div class="resume-item">
+            <p>Student journalist with bylines in two Palo Alto High School publications, covering community news, local government, education, and environmental issues. Seeking a college publications or communications internship to further develop reporting, editorial, and digital media skills.</p>
+          </div>
+        </div>
+
+        <div class="resume-note">✦ &nbsp; Update placeholder text (GPA, dates, contact info, activities) before submitting &nbsp; ✦ &nbsp; Keep to one page when printing &nbsp; ✦</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PORTFOLIO ═══ -->
+  <section class="page-section" id="portfolio">
+    <div class="section-flag"><span>Portfolio</span></div>
+    <h2 class="section-headline">Work Samples</h2>
+    <p class="section-dek">Selected published work organized by JEA portfolio standards, with 100-word commentaries.</p>
+
+    <div class="category-nav">
+      <button class="cat-btn active" onclick="showCategory('writing',this)">Writing &amp; Reporting</button>
+      <button class="cat-btn" onclick="showCategory('web',this)">Web &amp; Social Media</button>
+    </div>
+
+    <!-- WRITING & REPORTING -->
+    <div class="category-panel active" id="cat-writing">
+      <div class="cat-header">
+        <div class="cat-number">01</div>
+        <div>
+          <div class="cat-title">Writing &amp; Reporting</div>
+          <div class="cat-jea">JEA Category 1 · News, Features, Opinion, Investigative</div>
+        </div>
+      </div>
+      <div class="articles-grid">
+
+        <div class="article-card">
+          <div class="article-img">
+            <img src="https://thecampanile.org/wp-content/uploads/2026/03/EPA-Police-Department-1-scaled.jpg"
+                 onerror="this.parentElement.innerHTML='<div class=\'article-img-placeholder\'><svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\'/><circle cx=\'8.5\' cy=\'8.5\' r=\'1.5\'/><path d=\'m21 15-5-5L5 21\'/></svg></div>'"
+                 alt="East Palo Alto Police Department">
+          </div>
+          <span class="pub-badge campanile">The Campanile</span>
+          <div class="article-type">News &nbsp;·&nbsp; March 17, 2026</div>
+          <div class="article-title">East Palo Alto Reports Zero Homicides in 2025, Second Time in Three Years</div>
+          <div class="article-desc">During two of the past three years, East Palo Alto has recorded zero homicides — a striking turnaround for a city once named the "murder capital" of the U.S. in 1992. Interviews with a UC Law SF criminology professor and EPAPD officials explore what's driving the change.</div>
+          <a href="https://thecampanile.org/36314/news/east-palo-alto-reports-zero-homicides-in-2025-second-time-in-three-years/" target="_blank" class="article-link">Read More →</a>
+        </div>
+
+        <div class="article-card">
+          <div class="article-img">
+            <img src="https://thecampanile.org/wp-content/uploads/2026/03/communitycollegeART.jpg"
+                 onerror="this.parentElement.innerHTML='<div class=\'article-img-placeholder\'><svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\'/><circle cx=\'8.5\' cy=\'8.5\' r=\'1.5\'/><path d=\'m21 15-5-5L5 21\'/></svg></div>'"
+                 alt="Community College Deserves Respect">
+          </div>
+          <span class="pub-badge campanile">The Campanile</span>
+          <div class="article-type">Opinion &nbsp;·&nbsp; March 30, 2026</div>
+          <div class="article-title">Community College Deserves Respect</div>
+          <div class="article-desc">At Paly, the question isn't if you're going to college — it's where. A first-person opinion piece challenging the pressure to chase elite universities, and arguing that community college is a legitimate, often overlooked path to achieving your goals.</div>
+          <a href="https://thecampanile.org/36328/opinion/community-college-deserves-respect/" target="_blank" class="article-link">Read More →</a>
+        </div>
+
+        <div class="article-card">
+          <div class="article-img">
+            <img src="https://thecampanile.org/wp-content/uploads/2026/04/ClimateArt-scaled.jpg"
+                 onerror="this.parentElement.innerHTML='<div class=\'article-img-placeholder\'><svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\'/><circle cx=\'8.5\' cy=\'8.5\' r=\'1.5\'/><path d=\'m21 15-5-5L5 21\'/></svg></div>'"
+                 alt="Climate In Crisis">
+          </div>
+          <span class="pub-badge campanile">The Campanile</span>
+          <div class="article-type">Spotlight &nbsp;·&nbsp; April 15, 2026</div>
+          <div class="article-title">Climate In Crisis</div>
+          <div class="article-desc">In 2026, 1.4 million acres have already burned. But the public conversation follows a familiar cycle: outrage, concern, then silence. A multi-reporter spotlight examining climate desensitization — with voices from local youth activists and analysis of new federal pipeline decisions.</div>
+          <a href="https://thecampanile.org/36428/spotlight/climate-in-crisis/" target="_blank" class="article-link">Read More →</a>
+        </div>
+
+        <div class="article-card">
+          <div class="article-img">
+            <img src="https://thecampanile.org/wp-content/uploads/2026/05/memorizationART.jpg"
+                 onerror="this.parentElement.innerHTML='<div class=\'article-img-placeholder\'><svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\'/><circle cx=\'8.5\' cy=\'8.5\' r=\'1.5\'/><path d=\'m21 15-5-5L5 21\'/></svg></div>'"
+                 alt="Memorization Strategies">
+          </div>
+          <span class="pub-badge campanile">The Campanile</span>
+          <div class="article-type">Science / Tech &nbsp;·&nbsp; May 2, 2026</div>
+          <div class="article-title">Having Memorization Strategies Can Help Students Succeed</div>
+          <div class="article-desc">It's 11:30 p.m. the night before a test, and sophomore Blake Lopez is still awake. A science and education feature on research-backed memorization techniques — and why studying smarter, not longer, can make all the difference.</div>
+          <a href="https://thecampanile.org/staff_name/asaf-milman/" target="_blank" class="article-link">Read More →</a>
+        </div>
+
+        <div class="article-card">
+          <div class="article-img">
+            <img src="https://verdemagazine.com/wp-content/uploads/2026/02/RVs-Fabian-Way.jpg"
+                 onerror="this.parentElement.innerHTML='<div class=\'article-img-placeholder\'><svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\'/><circle cx=\'8.5\' cy=\'8.5\' r=\'1.5\'/><path d=\'m21 15-5-5L5 21\'/></svg></div>'"
+                 alt="RV landlords editorial">
+          </div>
+          <span class="pub-badge verde">Verde Magazine</span>
+          <div class="article-type">Editorial &nbsp;·&nbsp; February 23, 2026</div>
+          <div class="article-title">City Ban on RV Landlords a Positive Step</div>
+          <div class="article-desc">Palo Alto's new ordinances crack down on "vanlording" — renting RVs as long-term housing on city streets. An editorial arguing the ban is a step in the right direction, but only if paired with real investment in safe parking and affordable housing alternatives.</div>
+          <a href="https://verdemagazine.com/editorial-city-ban-on-rv-landlords-a-positive-step" target="_blank" class="article-link">Read More →</a>
+        </div>
+
+        <div class="article-card">
+          <div class="article-img">
+            <div class="article-img-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            </div>
+          </div>
+          <span class="pub-badge verde">Verde Magazine</span>
+          <div class="article-type">News &nbsp;·&nbsp; February 14 &amp; 18, 2026</div>
+          <div class="article-title">Verde Co-authored Reporting (February 2026)</div>
+          <div class="article-desc">Two community news pieces co-reported with Justin Chen and Jacob Domingo — demonstrating collaborative journalism and the ability to juggle multiple beats and deadlines simultaneously in a fast-moving publication environment.</div>
+          <a href="https://verdemagazine.com/staff_name/asaf-milman" target="_blank" class="article-link">View Archive →</a>
+        </div>
+
+      </div>
+      <div class="commentary-box">
+        <div class="box-label">100-Word Commentary — Writing &amp; Reporting</div>
+        <div class="box-prompt">
+          Write your commentary here. In ~100 words, explain what you did across these pieces and how they reflect your personal growth as a journalist. What range of reporting skills do they demonstrate? What was most challenging? What are you proudest of? Be specific — mention sources you interviewed, techniques you used, or moments that challenged you. For example: your East Palo Alto story required you to find expert sources outside the school community; your opinion piece took personal courage to publish at Paly.
+        </div>
+        <div class="word-count">Target: ~100 words</div>
+      </div>
+    </div>
+
+    <!-- WEB & SOCIAL MEDIA -->
+    <div class="category-panel" id="cat-web">
+      <div class="cat-header">
+        <div class="cat-number">07</div>
+        <div>
+          <div class="cat-title">Web &amp; Social Media</div>
+          <div class="cat-jea">JEA Category 7 · Digital Publishing, Social Strategy, Online Audience</div>
+        </div>
+      </div>
+      <div class="articles-grid">
+
+        <div class="article-card">
+          <div class="article-img">
+            <img src="https://thecampanile.org/wp-content/uploads/2026/03/EPA-Police-Department-1-scaled.jpg"
+                 onerror="this.parentElement.innerHTML='<div class=\'article-img-placeholder\'><svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\'/><circle cx=\'8.5\' cy=\'8.5\' r=\'1.5\'/><path d=\'m21 15-5-5L5 21\'/></svg></div>'"
+                 alt="Campanile digital archive">
+          </div>
+          <span class="pub-badge campanile">The Campanile</span>
+          <div class="article-type">Digital Publishing &nbsp;·&nbsp; Spring 2026</div>
+          <div class="article-title">Online Article Portfolio — thecampanile.org</div>
+          <div class="article-desc">All Campanile articles published on thecampanile.org, reaching a digital audience beyond the print edition. Demonstrates CMS publishing, SEO-optimized headlines, and digital-first storytelling across news, opinion, and feature formats.</div>
+          <a href="https://thecampanile.org/staff_name/asaf-milman/" target="_blank" class="article-link">View Digital Archive →</a>
+        </div>
+
+        <div class="article-card">
+          <div class="article-img">
+            <img src="https://verdemagazine.com/wp-content/uploads/2026/02/RVs-Fabian-Way.jpg"
+                 onerror="this.parentElement.innerHTML='<div class=\'article-img-placeholder\'><svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\'/><circle cx=\'8.5\' cy=\'8.5\' r=\'1.5\'/><path d=\'m21 15-5-5L5 21\'/></svg></div>'"
+                 alt="Verde digital archive">
+          </div>
+          <span class="pub-badge verde">Verde Magazine</span>
+          <div class="article-type">Digital Publishing &nbsp;·&nbsp; Spring 2026</div>
+          <div class="article-title">Verde Digital Archive — verdemagazine.com</div>
+          <div class="article-desc">Articles published on verdemagazine.com, contributing to Verde's digital presence. Demonstrates cross-publication fluency and the ability to adapt voice and style across different online editorial environments.</div>
+          <a href="https://verdemagazine.com/staff_name/asaf-milman" target="_blank" class="article-link">View Digital Archive →</a>
+        </div>
+
+        <div class="article-card">
+          <div class="article-img">
+            <div class="article-img-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            </div>
+          </div>
+          <div class="article-type">Add Sample &nbsp;·&nbsp; 2026</div>
+          <div class="article-title">Social Media, Newsletters, or Multimedia Work</div>
+          <div class="article-desc">Add screenshots or links to any social media posts, Instagram stories, newsletters, podcasts, or other digital-native content you've contributed to this semester.</div>
+          <a href="#" class="article-link">Add Your Sample →</a>
+        </div>
+
+      </div>
+      <div class="commentary-box">
+        <div class="box-label">100-Word Commentary — Web &amp; Social Media</div>
+        <div class="box-prompt">
+          Write your commentary here. Describe your digital journalism work this semester. How have your articles lived online — what platforms, what audiences? Have you contributed to social media promotion of stories, engaged with readers digitally, or experimented with multimedia elements? What have you learned about how journalism functions differently online versus in print? Reference specific pieces or platforms. Aim for ~100 words.
+        </div>
+        <div class="word-count">Target: ~100 words</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ REFLECTIONS ═══ -->
+  <section class="page-section" id="reflections">
+    <div class="section-flag"><span>Reflections</span></div>
+    <h2 class="section-headline">Reflective Self-Assessment</h2>
+    <p class="section-dek">Required reflective writing per JEA portfolio standards — updated Spring 2026.</p>
+    <div class="reflection-sections">
+
+      <div class="reflection-block">
+        <div class="reflection-block-header">
+          <h3>Major Reflection — Semester Self-Assessment</h3>
+          <span class="reflection-word-req">500 words minimum · Spring 2026</span>
+        </div>
+        <div class="reflection-body">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;">Suggested prompts — address some or all:</div>
+          <div class="reflection-prompt-item">Reflect on your current growth in scholastic media and how being part of Campanile has shaped you.</div>
+          <div class="reflection-prompt-item">Explain challenges you have faced (censorship, staff conflict, balancing obligations, tech obstacles, etc.) and how you addressed them.</div>
+          <div class="reflection-prompt-item">Write about the impact of high school journalism on your life so far and your expectations for future endeavors.</div>
+          <div class="reflection-prompt-item">Address the transfer of hard journalism skills and soft workplace skills — where have you used Campanile experience outside class?</div>
+          <div class="reflection-prompt-item">Explain any non-bylined contributions this semester: coding, field trips, NorCal Media Day, photography, helping others, etc.</div>
+          <div class="reflection-prompt-item"><em>Optional:</em> Reflect on the state of journalism and your role in it. What have readings, speakers, or conversations revealed?</div>
+          <div class="reflection-placeholder" style="margin-top:1.5rem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            Write your 500+ word major reflection here — replace this placeholder with your text
+          </div>
+        </div>
+      </div>
+
+      <div class="reflection-block">
+        <div class="reflection-block-header" style="background:var(--accent);">
+          <h3>Minor Commentaries — Category Notes</h3>
+          <span class="reflection-word-req">~100 words each · min. 5 categories</span>
+        </div>
+        <div class="reflection-body">
+          <p style="font-size:.85rem;line-height:1.75;color:var(--muted);margin-bottom:1.2rem;">
+            Your 100-word commentaries live inside each portfolio category (see the <strong>Portfolio</strong> tab). You need at least five — currently you have two active categories. Consider adding more from the full list of nine JEA categories if you have supporting work.
+          </p>
+          <div style="display:flex;gap:.6rem;flex-wrap:wrap;">
+            <span class="skill-tag" style="background:white;">✎ Writing &amp; Reporting — fill in Portfolio tab</span>
+            <span class="skill-tag" style="background:white;">✎ Web &amp; Social Media — fill in Portfolio tab</span>
+            <span class="skill-tag" style="background:var(--cream);color:var(--muted);">+ Law, Ethics &amp; News Literacy?</span>
+            <span class="skill-tag" style="background:var(--cream);color:var(--muted);">+ Commitment to Diversity?</span>
+            <span class="skill-tag" style="background:var(--cream);color:var(--muted);">+ 3 more needed to meet minimum</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-name">Asaf Milman</div>
+    <div class="footer-meta">The Campanile &amp; Verde Magazine &nbsp;·&nbsp; Palo Alto High School &nbsp;·&nbsp; Spring 2026 &nbsp;·&nbsp; Journalism Portfolio</div>
+  </footer>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.nav-link').forEach(a => a.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      document.querySelector('[data-section="'+id+'"]')?.classList.add('active');
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+    function showCategory(id, btn) {
+      document.querySelectorAll('.category-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('cat-'+id).classList.add('active');
+      btn.classList.add('active');
+    }
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', e => { e.preventDefault(); showSection(link.dataset.section); });
+    });
+  </script>
 </body>
 </html>
