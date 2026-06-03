@@ -179,7 +179,7 @@
     <a href="#" class="nav-link active" data-section="home">About</a>
     <a href="#" class="nav-link" data-section="bio">Staff Bio</a>
     <a href="#" class="nav-link" data-section="resume">Résumé</a>
-    <a href="#" class="nav-link" data-section="portfolio">Portfolio</a>
+    <a href="#" class="nav-link" data-section="portfolio">Minor Reflections</a>
     <a href="#" class="nav-link" data-section="reflections">Reflections</a>
   </nav>
 
@@ -429,173 +429,78 @@
     </div>
   </section>
 
-  <!-- ═══ PORTFOLIO ═══ -->
+  <!-- ═══ MINOR REFLECTIONS ═══ -->
   <section class="page-section" id="portfolio">
-    <div class="section-flag"><span>Portfolio</span></div>
-    <h2 class="section-headline">Work Samples</h2>
-    <p class="section-dek">Selected published work organized by JEA portfolio standards, with 100-word commentaries.</p>
+    <div class="section-flag"><span>Minor Reflections</span></div>
+    <h2 class="section-headline">Category Commentaries</h2>
+    <p class="section-dek">~100-word reflections for each JEA portfolio category, Spring 2026.</p>
+    <div class="reflection-sections">
 
-    <div class="category-nav">
-      <button class="cat-btn active" onclick="showCategory('writing',this)">Writing &amp; Reporting</button>
-      <button class="cat-btn" onclick="showCategory('web',this)">Web &amp; Social Media</button>
-    </div>
-
-    <!-- WRITING & REPORTING -->
-    <div class="category-panel active" id="cat-writing">
-      <div class="cat-header">
-        <div class="cat-number">01</div>
-        <div>
-          <div class="cat-title">Writing &amp; Reporting</div>
-          <div class="cat-jea">JEA Category 1 · News, Features, Opinion, Investigative</div>
+      <div class="reflection-block">
+        <div class="reflection-block-header">
+          <h3>Category 1 — Writing &amp; Reporting</h3>
+          <span class="reflection-word-req">~100 words</span>
+        </div>
+        <div class="reflection-body">
+          <div class="reflection-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            Write your commentary here — explain what you did across your published pieces and how they reflect your growth as a journalist.
+          </div>
         </div>
       </div>
-      <div class="articles-grid">
 
-        <div class="article-card">
-          <div class="article-img">
-            <img src="epa.jpg"
-                 onerror="this.parentElement.innerHTML='<div class=\'article-img-placeholder\'><svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\'/><circle cx=\'8.5\' cy=\'8.5\' r=\'1.5\'/><path d=\'m21 15-5-5L5 21\'/></svg></div>'"
-                 alt="East Palo Alto Police Department">
+      <div class="reflection-block">
+        <div class="reflection-block-header">
+          <h3>Category 7 — Web &amp; Social Media</h3>
+          <span class="reflection-word-req">~100 words</span>
+        </div>
+        <div class="reflection-body">
+          <div class="reflection-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            Write your commentary here — describe how your work lives online, what platforms you published on, and what you learned about digital journalism.
           </div>
-          <span class="pub-badge campanile">The Campanile</span>
-          <div class="article-type">News &nbsp;·&nbsp; March 17, 2026</div>
-          <div class="article-title">East Palo Alto Reports Zero Homicides in 2025, Second Time in Three Years</div>
-          <div class="article-desc">During two of the past three years, East Palo Alto has recorded zero homicides — a striking turnaround for a city once named the "murder capital" of the U.S. in 1992. Interviews with a UC Law SF criminology professor and EPAPD officials explore what's driving the change.</div>
-          <a href="https://thecampanile.org/36314/news/east-palo-alto-reports-zero-homicides-in-2025-second-time-in-three-years/" target="_blank" class="article-link">Read More →</a>
-        </div>
-
-        <div class="article-card">
-          <div class="article-img">
-            <img src="community-college.jpg"
-                 onerror="this.parentElement.innerHTML='<div class=\'article-img-placeholder\'><svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\'/><circle cx=\'8.5\' cy=\'8.5\' r=\'1.5\'/><path d=\'m21 15-5-5L5 21\'/></svg></div>'"
-                 alt="Community College Deserves Respect">
-          </div>
-          <span class="pub-badge campanile">The Campanile</span>
-          <div class="article-type">Opinion &nbsp;·&nbsp; March 30, 2026</div>
-          <div class="article-title">Community College Deserves Respect</div>
-          <div class="article-desc">At Paly, the question isn't if you're going to college — it's where. A first-person opinion piece challenging the pressure to chase elite universities, and arguing that community college is a legitimate, often overlooked path to achieving your goals.</div>
-          <a href="https://thecampanile.org/36328/opinion/community-college-deserves-respect/" target="_blank" class="article-link">Read More →</a>
-        </div>
-
-        <div class="article-card">
-          <div class="article-img">
-            <img src="climate.png"
-                 onerror="this.parentElement.innerHTML='<div class=\'article-img-placeholder\'><svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\'/><circle cx=\'8.5\' cy=\'8.5\' r=\'1.5\'/><path d=\'m21 15-5-5L5 21\'/></svg></div>'"
-                 alt="Climate In Crisis">
-          </div>
-          <span class="pub-badge campanile">The Campanile</span>
-          <div class="article-type">Spotlight &nbsp;·&nbsp; April 15, 2026</div>
-          <div class="article-title">Climate In Crisis</div>
-          <div class="article-desc">In 2026, 1.4 million acres have already burned. But the public conversation follows a familiar cycle: outrage, concern, then silence. A multi-reporter spotlight examining climate desensitization — with voices from local youth activists and analysis of new federal pipeline decisions.</div>
-          <a href="https://thecampanile.org/36428/spotlight/climate-in-crisis/" target="_blank" class="article-link">Read More →</a>
-        </div>
-
-        <div class="article-card">
-          <div class="article-img">
-            <img src="memorization.jpg"
-                 onerror="this.parentElement.innerHTML='<div class=\'article-img-placeholder\'><svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\'/><circle cx=\'8.5\' cy=\'8.5\' r=\'1.5\'/><path d=\'m21 15-5-5L5 21\'/></svg></div>'"
-                 alt="Memorization Strategies">
-          </div>
-          <span class="pub-badge campanile">The Campanile</span>
-          <div class="article-type">Science / Tech &nbsp;·&nbsp; May 2, 2026</div>
-          <div class="article-title">Having Memorization Strategies Can Help Students Succeed</div>
-          <div class="article-desc">It's 11:30 p.m. the night before a test, and sophomore Blake Lopez is still awake. A science and education feature on research-backed memorization techniques — and why studying smarter, not longer, can make all the difference.</div>
-          <a href="https://thecampanile.org/36487/science-tech/having-memorization-strategies-can-help-students-succeed/" target="_blank" class="article-link">Read More →</a>
-        </div>
-
-        <div class="article-card">
-          <div class="article-img">
-            <img src="https://verdemagazine.com/wp-content/uploads/2026/02/RVs-Fabian-Way.jpg"
-                 onerror="this.parentElement.innerHTML='<div class=\'article-img-placeholder\'><svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\'/><circle cx=\'8.5\' cy=\'8.5\' r=\'1.5\'/><path d=\'m21 15-5-5L5 21\'/></svg></div>'"
-                 alt="RV landlords editorial">
-          </div>
-          <span class="pub-badge verde">Verde Magazine</span>
-          <div class="article-type">Editorial &nbsp;·&nbsp; February 23, 2026</div>
-          <div class="article-title">City Ban on RV Landlords a Positive Step</div>
-          <div class="article-desc">Palo Alto's new ordinances crack down on "vanlording" — renting RVs as long-term housing on city streets. An editorial arguing the ban is a step in the right direction, but only if paired with real investment in safe parking and affordable housing alternatives.</div>
-          <a href="https://verdemagazine.com/editorial-city-ban-on-rv-landlords-a-positive-step" target="_blank" class="article-link">Read More →</a>
-        </div>
-
-        <div class="article-card">
-          <div class="article-img">
-            <div class="article-img-placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            </div>
-          </div>
-          <span class="pub-badge verde">Verde Magazine</span>
-          <div class="article-type">News &nbsp;·&nbsp; February 14 &amp; 18, 2026</div>
-          <div class="article-title">Verde Co-authored Reporting (February 2026)</div>
-          <div class="article-desc">Two community news pieces co-reported with Justin Chen and Jacob Domingo — demonstrating collaborative journalism and the ability to juggle multiple beats and deadlines simultaneously in a fast-moving publication environment.</div>
-          <a href="https://verdemagazine.com/staff_name/asaf-milman" target="_blank" class="article-link">View Archive →</a>
-        </div>
-
-      </div>
-      <div class="commentary-box">
-        <div class="box-label">100-Word Commentary — Writing &amp; Reporting</div>
-        <div class="box-prompt">
-          Write your commentary here. In ~100 words, explain what you did across these pieces and how they reflect your personal growth as a journalist. What range of reporting skills do they demonstrate? What was most challenging? What are you proudest of? Be specific — mention sources you interviewed, techniques you used, or moments that challenged you. For example: your East Palo Alto story required you to find expert sources outside the school community; your opinion piece took personal courage to publish at Paly.
-        </div>
-        <div class="word-count">Target: ~100 words</div>
-      </div>
-    </div>
-
-    <!-- WEB & SOCIAL MEDIA -->
-    <div class="category-panel" id="cat-web">
-      <div class="cat-header">
-        <div class="cat-number">07</div>
-        <div>
-          <div class="cat-title">Web &amp; Social Media</div>
-          <div class="cat-jea">JEA Category 7 · Digital Publishing, Social Strategy, Online Audience</div>
         </div>
       </div>
-      <div class="articles-grid">
 
-        <div class="article-card">
-          <div class="article-img">
-            <img src="epa.jpg"
-                 onerror="this.parentElement.innerHTML='<div class=\'article-img-placeholder\'><svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\'/><circle cx=\'8.5\' cy=\'8.5\' r=\'1.5\'/><path d=\'m21 15-5-5L5 21\'/></svg></div>'"
-                 alt="Campanile digital archive">
-          </div>
-          <span class="pub-badge campanile">The Campanile</span>
-          <div class="article-type">Digital Publishing &nbsp;·&nbsp; Spring 2026</div>
-          <div class="article-title">Online Article Portfolio — thecampanile.org</div>
-          <div class="article-desc">All Campanile articles published on thecampanile.org, reaching a digital audience beyond the print edition. Demonstrates CMS publishing, SEO-optimized headlines, and digital-first storytelling across news, opinion, and feature formats.</div>
-          <a href="https://thecampanile.org/staff_name/asaf-milman/" target="_blank" class="article-link">View Digital Archive →</a>
+      <div class="reflection-block">
+        <div class="reflection-block-header">
+          <h3>Category 4 — Law, Ethics &amp; News Literacy</h3>
+          <span class="reflection-word-req">~100 words</span>
         </div>
-
-        <div class="article-card">
-          <div class="article-img">
-            <img src="https://verdemagazine.com/wp-content/uploads/2026/02/RVs-Fabian-Way.jpg"
-                 onerror="this.parentElement.innerHTML='<div class=\'article-img-placeholder\'><svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\'/><circle cx=\'8.5\' cy=\'8.5\' r=\'1.5\'/><path d=\'m21 15-5-5L5 21\'/></svg></div>'"
-                 alt="Verde digital archive">
+        <div class="reflection-body">
+          <div class="reflection-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            Write your commentary here — reflect on the ethical decisions in your reporting. Consider how you approached sourcing, fact-checking, and covering sensitive community issues responsibly.
           </div>
-          <span class="pub-badge verde">Verde Magazine</span>
-          <div class="article-type">Digital Publishing &nbsp;·&nbsp; Spring 2026</div>
-          <div class="article-title">Verde Digital Archive — verdemagazine.com</div>
-          <div class="article-desc">Articles published on verdemagazine.com, contributing to Verde's digital presence. Demonstrates cross-publication fluency and the ability to adapt voice and style across different online editorial environments.</div>
-          <a href="https://verdemagazine.com/staff_name/asaf-milman" target="_blank" class="article-link">View Digital Archive →</a>
         </div>
-
-        <div class="article-card">
-          <div class="article-img">
-            <div class="article-img-placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            </div>
-          </div>
-          <div class="article-type">Add Sample &nbsp;·&nbsp; 2026</div>
-          <div class="article-title">Social Media, Newsletters, or Multimedia Work</div>
-          <div class="article-desc">Add screenshots or links to any social media posts, Instagram stories, newsletters, podcasts, or other digital-native content you've contributed to this semester.</div>
-          <a href="#" class="article-link">Add Your Sample →</a>
-        </div>
-
       </div>
-      <div class="commentary-box">
-        <div class="box-label">100-Word Commentary — Web &amp; Social Media</div>
-        <div class="box-prompt">
-          Write your commentary here. Describe your digital journalism work this semester. How have your articles lived online — what platforms, what audiences? Have you contributed to social media promotion of stories, engaged with readers digitally, or experimented with multimedia elements? What have you learned about how journalism functions differently online versus in print? Reference specific pieces or platforms. Aim for ~100 words.
+
+      <div class="reflection-block">
+        <div class="reflection-block-header">
+          <h3>Category 5 — Editing, Leadership &amp; Team Building</h3>
+          <span class="reflection-word-req">~100 words</span>
         </div>
-        <div class="word-count">Target: ~100 words</div>
+        <div class="reflection-body">
+          <div class="reflection-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            Write your commentary here — reflect on your co-reported pieces and what you learned from collaborating with other journalists. How did teamwork shape your final stories?
+          </div>
+        </div>
       </div>
+
+      <div class="reflection-block">
+        <div class="reflection-block-header">
+          <h3>Category 9 — Commitment to Diversity</h3>
+          <span class="reflection-word-req">~100 words</span>
+        </div>
+        <div class="reflection-body">
+          <div class="reflection-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            Write your commentary here — reflect on how your stories centered underrepresented voices and communities, such as East Palo Alto residents and students underserved by the college system.
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
